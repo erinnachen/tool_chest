@@ -14,6 +14,7 @@ class ToolsController < ApplicationController
   def create
     @tool = Tool.new(tool_params)
     if @tool.save
+      flash[:notice] = "Tool successfully created"
       redirect_to tool_path(@tool.id)
     else
       render :new
@@ -23,7 +24,7 @@ class ToolsController < ApplicationController
   def edit
     @tool = Tool.find(params[:id])
   end
-  
+
   def update
     @tool = Tool.find(params[:id])
     @tool.update(tool_params)
