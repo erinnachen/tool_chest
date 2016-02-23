@@ -1,0 +1,4 @@
+<% @tools.each do |tool| %>
+  <h3><%= link_to "#{tool.name}", tool_path(tool) %><%="- #{tool.quantity}"%></h3>
+<% end %>
+<button type="button"><%= link_to "Create new tool", new_tool_path %></button>
