@@ -2,14 +2,16 @@
 <html>
 <head>
   <title>ToolChest</title>
-  
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="container">
-<%= yield %>
-</div>
+  <div class="container">
+    <p><strong>Newest tool:</strong> <%= most_recent_tool.name %></p>
+    <p><strong>Current Sessions Tool Summary:</strong> <%= current_tool_summary %></p>
+    <%= yield %>
+  </div>
 </body>
 </html>

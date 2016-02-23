@@ -1,4 +1,6 @@
-<h1 class="flash"><%= flash[:notice] %></h1>
+<% flash.each do |type, msg| %>
+  <%= content_tag :div, msg, class: "flash_#{type}" %>
+<% end %>
 <div class = "tool_info">
 <h1><%= "#{@tool.name} - #{@tool.quantity}" %></h1>
 <h3><%= "Price: $#{@tool.formatted_price}" %></h3>
