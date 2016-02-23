@@ -4,10 +4,10 @@ class UserCanEditAToolTest < ActionDispatch::IntegrationTest
   test "user can edit an existing tool" do
     tool = Tool.create(name: "Hammer", price: 2999, quantity: 3)
     visit edit_tool_path(tool.id)
-    save_and_open_page
+
     fill_in "Name", with: "Wrench"
     fill_in "Quantity", with: "30"
-    fill_in tool[price], with: "899"
+    fill_in "Price", with: "899"
     click_button "Update Tool"
 
     assert_equal tool_path(tool.id), current_path
