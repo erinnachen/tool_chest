@@ -9,7 +9,9 @@
 </head>
 <body>
   <div class="container">
-    <p><strong>Newest tool:</strong> <%= most_recent_tool.name %></p>
+    <h2><%= link_to "Create new account", new_user_path %></h2>
+    <h2><%= link_to "Login to existing account", login_path %></h2>
+    <p><strong>Newest tool:</strong> <%= "#{most_recent_tool.name}" if most_recent_tool %></p>
     <p><strong>Current Sessions Tool Summary:</strong> <%= current_tool_summary %></p>
     <%= yield %>
   </div>
