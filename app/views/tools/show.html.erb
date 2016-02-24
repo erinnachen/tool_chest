@@ -4,5 +4,6 @@
 <div class = "tool_info">
 <h1><%= "#{@tool.name} - #{@tool.quantity}" %></h1>
 <h3><%= "Price: $#{sprintf('%.2f', @tool.formatted_price)}" %></h3>
-<%= link_to "Back to #{current_user.username}'s tools", user_tools_path %>
 </div>
+<%= link_to "Edit #{@tool.name}", edit_user_tool_path(@tool) %>
+<%= link_to "Back to #{current_user.username}'s tools", user_tools_path %>

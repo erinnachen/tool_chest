@@ -30,6 +30,7 @@ class ToolsController < ApplicationController
 
   def edit
     @tool = Tool.find(params[:id])
+    @user = current_user
   end
 
   def update

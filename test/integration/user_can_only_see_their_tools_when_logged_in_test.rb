@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class UserCanOnlySeeTheirToolsWhenLoggedInTest < ActionDispatch::IntegrationTest
-  test "the truth" do
+  test "user can see only their tools after login" do
     u1 = User.create(username: "capybaracrawler", password: "securepassword")
     u2 = User.create(username: "kesha", password: "pa$$word")
     u1.tools << Tool.new(name: "Hammer", price: 1999, quantity: 5)

@@ -1,7 +1,7 @@
 <%= "#{current_user.username}'s tools:" %>
 <ul id= "tools">
   <% @user.tools.each do |tool| %>
-    <li><%= tool.name %></li>
+    <li><%= link_to tool.name, user_tool_path(tool) %></li>
   <% end %>
 </ul>
 <%= link_to "Create New Tools", new_user_tool_path(current_user) %>
