@@ -24,6 +24,12 @@ class ActionDispatch::IntegrationTest
     fill_in "Password", with: "securepassword"
   end
 
+  def login_user
+    visit login_path
+    fill_in_username_and_password
+    click_on "Login"
+  end
+
   def teardown
     reset_session!
     super

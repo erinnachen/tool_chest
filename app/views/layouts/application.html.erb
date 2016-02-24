@@ -15,7 +15,8 @@
     <h2><%= link_to "Logout", logout_path, method: "delete"%></h2>
 
     <p><strong>Newest tool:</strong> <%= "#{most_recent_tool.name}" if most_recent_tool %></p>
-    <p><strong>Current Sessions Tool Summary:</strong> <%= current_tool_summary %></p>
+    <p><strong>Current Sessions Tool Summary:</strong></p>
+    <p><%= current_tool_summary %></p>
     <%= yield %>
   </div>
 </body>

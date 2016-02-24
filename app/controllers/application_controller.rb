@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  helper_method :most_recent_tool, :current_tool_summary
+  helper_method :most_recent_tool, :current_tool_summary, :current_user
 
   def most_recent_tool
     @most_recent_tool ||= Tool.find(session[:most_recent_tool_id]) if session[:most_recent_tool_id]
@@ -11,6 +11,10 @@ class ApplicationController < ActionController::Base
 
   def current_tool_summary
     "Current tool count: #{session[:current_tool_count].to_i}
-     Current potential revenue: $#{session[:current_potential_revenue].to_f}"
+     Current potential revenue: $#{sprintf('%.2f',session[:current_potential_revenue].to_f)}"
+  end
+
+  def current_user
+    @user ||= User.find(session[:user_id]) if session[:user_id]
   end
 end

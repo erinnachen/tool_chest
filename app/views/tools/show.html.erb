@@ -3,8 +3,6 @@
 <% end %>
 <div class = "tool_info">
 <h1><%= "#{@tool.name} - #{@tool.quantity}" %></h1>
-<h3><%= "Price: $#{@tool.formatted_price}" %></h3>
-<%= link_to "Tools Index", tools_path %>
-<button type="button"><%= link_to "Edit #{@tool.name}", edit_tool_path(@tool.id)%></button>
-<button type="button"><%= link_to "Destroy #{@tool.name}", tool_path(@tool.id), method: "delete"%></button>
+<h3><%= "Price: $#{sprintf('%.2f', @tool.formatted_price)}" %></h3>
+<%= link_to "Back to #{current_user.username}'s tools", user_tools_path %>
 </div>

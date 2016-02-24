@@ -1,4 +1,8 @@
-<% @tools.each do |tool| %>
-  <h3><%= link_to "#{tool.name}", tool_path(tool) %><%="- #{tool.quantity}"%></h3>
-<% end %>
-<button type="button"><%= link_to "Create new tool", new_tool_path %></button>
+<h1><%=current_user.username %>'s Tools</h1>
+
+<div class="tools">
+  <% @tools.each do |tool| %>
+    <h3><%= link_to "#{tool.name}", user_tool_path(tool) %><%="- #{tool.quantity}"%></h3>
+  <% end %>
+</div>
+<button type="button"><%= link_to "Create new tool", new_user_tool_path %></button>

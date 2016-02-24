@@ -1,7 +1,7 @@
 class ToolsController < ApplicationController
 
   def index
-    @tools = Tool.all
+    @tools = current_user.tools
   end
 
   def show
@@ -9,17 +9,19 @@ class ToolsController < ApplicationController
   end
 
   def new
+    @user = current_user
     @tool = Tool.new
   end
 
   def create
     @tool = Tool.new(tool_params)
+    @tool.user = current_user
     if @tool.save
       session[:current_tool_count] = session[:current_tool_count].to_i + @tool.quantity
       session[:current_potential_revenue] = session[:current_potential_revenue].to_f + @tool.quantity*@tool.formatted_price
       session[:most_recent_tool_id] = @tool.id
       flash[:notice] = "Tool successfully created"
-      redirect_to tool_path(@tool.id)
+      redirect_to user_tool_path(@tool.id)
     else
       flash.now[:error] = @tool.errors.full_messages.join(', ')
       render :new
