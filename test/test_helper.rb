@@ -19,6 +19,10 @@ class ActionDispatch::IntegrationTest
     click_on "Create Account"
   end
 
+  def create_user
+    User.create(username: "capybaracrawler", password: "securepassword")
+  end
+
   def fill_in_username_and_password
     fill_in "Username", with: "capybaracrawler"
     fill_in "Password", with: "securepassword"
