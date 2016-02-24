@@ -15,7 +15,6 @@ class UserCanCreateToolsTest < ActionDispatch::IntegrationTest
     assert_equal user_tool_path(tool), current_path
     click_on "Back to capybaracrawler's tools"
 
-    save_and_open_page
     assert page.has_content? "Newest tool: Table saw"
     assert page.has_content? "Current tool count: 10"
     assert page.has_content? "Current potential revenue: $34.50"
