@@ -1,6 +1,3 @@
-<% flash.each do |type, msg| %>
-  <%= content_tag :div, msg, class: "flash_#{type}" %>
-<% end %>
 <div class = "tool_info">
 <h1><%= "#{@tool.name} - #{@tool.quantity}" %></h1>
 <h3><%= "Price: $#{sprintf('%.2f', @tool.formatted_price)}" %></h3>

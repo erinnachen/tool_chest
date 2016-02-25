@@ -17,6 +17,9 @@
     <p><strong>Current Sessions Tool Summary:</strong></p>
     <p><%= current_tool_summary %></p>
     <% end %>
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    <% end %>
     <%= yield %>
   </div>
 </body>
