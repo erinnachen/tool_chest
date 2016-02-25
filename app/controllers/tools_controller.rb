@@ -10,7 +10,6 @@ class ToolsController < ApplicationController
 
   def new
     @tool = Tool.new
-    @categories = Category.all
   end
 
   def create
@@ -31,7 +30,6 @@ class ToolsController < ApplicationController
   def edit
     @tool = Tool.find(params[:id])
     @user = current_user
-    @categories = Category.all
   end
 
   def update
