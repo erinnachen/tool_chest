@@ -2,6 +2,7 @@ require 'test_helper'
 
 class UserCanEditAToolTest < ActionDispatch::IntegrationTest
   test "user can edit an existing tool" do
+    
     tool = Tool.create(name: "Hammer", price: 2999, quantity: 3)
     visit edit_tool_path(tool.id)
 

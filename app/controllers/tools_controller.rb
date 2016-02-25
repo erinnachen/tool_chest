@@ -14,6 +14,7 @@ class ToolsController < ApplicationController
 
   def create
     @tool = Tool.new(tool_params)
+    @tool.user = current_user
     if @tool.save
       session[:current_tool_count] = session[:current_tool_count].to_i + @tool.quantity
       session[:current_potential_revenue] = session[:current_potential_revenue].to_f + @tool.quantity*@tool.formatted_price
