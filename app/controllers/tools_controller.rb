@@ -10,6 +10,7 @@ class ToolsController < ApplicationController
 
   def new
     @tool = Tool.new
+    @categories = Category.all
   end
 
   def create
@@ -30,6 +31,7 @@ class ToolsController < ApplicationController
   def edit
     @tool = Tool.find(params[:id])
     @user = current_user
+    @categories = Category.all
   end
 
   def update
@@ -52,7 +54,7 @@ class ToolsController < ApplicationController
   private
 
   def tool_params
-    params.require(:tool).permit(:name, :price, :quantity)
+    params.require(:tool).permit(:name, :price, :quantity, :category_id)
   end
 
 end

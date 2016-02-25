@@ -3,8 +3,9 @@ require 'test_helper'
 class UserCanEditExistingToolTest < ActionDispatch::IntegrationTest
   test "user sees updated tool after changing all fields" do
     u1 = create_user
-    tool1 = Tool.new(name: "Hammer", price: 1999, quantity: 5)
-    tool2 = Tool.new(name: "Screwdriver", price: 600, quantity: 25)
+    cat = Category.create(name: "hand tools")
+    tool1 = Tool.new(name: "Hammer", price: 1999, quantity: 5, category_id: cat.id)
+    tool2 = Tool.new(name: "Screwdriver", price: 600, quantity: 25, category_id: cat.id)
     u1.tools << tool1
     u1.tools << tool2
 

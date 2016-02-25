@@ -5,5 +5,10 @@
   <%= f.text_field :price %>
   <%= f.label :quantity %>
   <%= f.text_field :quantity %>
+  <%= f.select :category_id do %>
+    <% @categories.each do |cat| %>
+      <%= content_tag(:option, cat.name, value: cat.id) %>
+    <% end %>
+  <% end %>
   <%= f.submit %>
 <% end %>

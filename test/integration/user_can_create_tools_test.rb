@@ -3,6 +3,7 @@ require 'test_helper'
 class UserCanCreateToolsTest < ActionDispatch::IntegrationTest
   test "user sees tool on page after new tool created" do
     user = create_user
+    cat = Category.create(name: "hand tools")
     login_user
 
     visit user_path(user)
