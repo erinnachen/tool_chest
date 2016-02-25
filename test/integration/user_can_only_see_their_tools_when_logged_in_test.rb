@@ -15,9 +15,8 @@ class UserCanOnlySeeTheirToolsWhenLoggedInTest < ActionDispatch::IntegrationTest
 
     assert page.has_content? "capybaracrawler"
     within ("#tools") do
-      u1.tools.each do |tool|
-        assert page.has_content? tool.name
-      end
+      assert page.has_content? "Hammer"
+      assert page.has_content? "Screwdriver"
     end
     refute page.has_content? "Nail gun"
   end

@@ -5,6 +5,7 @@ SimpleCov.start "rails"
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 require 'capybara/rails'
+require 'mocha/mini_test'
 
 class ActiveSupport::TestCase
   include FactoryGirl::Syntax::Methods
