@@ -6,6 +6,7 @@ class ToolsController < ApplicationController
 
   def show
     @tool = Tool.find(params[:id])
+    render file: "/public/404" unless current_user == @tool.user
   end
 
   def new
